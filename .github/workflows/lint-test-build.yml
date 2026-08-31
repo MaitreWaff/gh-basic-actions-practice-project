@@ -1,7 +1,7 @@
 name: Lint Test Build in one job Workflow
 on: push
 jobs:
-  lint:
+  lint-test-build:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
