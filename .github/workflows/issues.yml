@@ -1,0 +1,12 @@
+name: Output Issue Workflow
+on: issues
+  # issue_comment:
+  #   types: [created]
+jobs:
+  output-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output issue event details
+        # run: |
+        #   echo "Issue comment created: ${{ github.event.comment.body }}"
+        run: echo "${{ toJson(github.event) }}"
