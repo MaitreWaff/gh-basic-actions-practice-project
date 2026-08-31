@@ -1,7 +1,7 @@
 name: Lint Test Build each after other in 3 jobs Workflow
 on: push
 jobs:
-  lint:
+  linting:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -14,8 +14,8 @@ jobs:
         run: npm install
       - name: Run linting
         run: npm run lint
-  test:
-    needs: lint
+  testing:
+    needs: linting
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -26,8 +26,8 @@ jobs:
           node-version: '18'
       - name: Run tests
         run: npm run test
-  build:
-    needs: [lint, test]
+  building:
+    needs: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get code
